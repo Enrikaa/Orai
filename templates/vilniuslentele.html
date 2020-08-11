@@ -1,0 +1,34 @@
+{%extends "base.html" %}
+{%block content%}
+
+<!--    VILNIUS-->
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                        {% for weather in weather_data %}
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <span class="title">{{ weather.place }}</span>
+                                        <br>
+                                        <span class="subtitle">{{ weather.temperature }}° F</span>
+                                        <br> {{ weather.time }}
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    {% endfor %}
+                </div>
+                <form method="POST" action="/send">
+                    <p><input class="btn btn-primary" type="submit" value="Sugrįžti" name="age"/></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+{%endblock%}
